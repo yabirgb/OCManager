@@ -1,6 +1,6 @@
 import os
 import rethinkdb as r
-from rethingdb.errors import RqlRuntimeError, RqlDriverError
+from rethinkdb.errors import RqlRuntimeError, RqlDriverError
 
 RDB_HOST = 'localhost'
 RDB_PORT = 28015
