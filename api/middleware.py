@@ -26,7 +26,7 @@ class AuthMiddleware(object):
 
     def _token_is_valid(self, token):
         try:
-            jwt.decode(token, 'secret', algorithms=CRYPT_ALGORITHMS)
+            jwt.decode(token, SECRET_KEY, algorithms=CRYPT_ALGORITHMS)
             return True
         except jwt.exceptions.InvalidTokenError:
             return False
