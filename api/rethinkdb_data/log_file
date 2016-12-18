@@ -1,8 +1,0 @@
-2016-12-18T14:11:21.888029271 1.729339s notice: Recursively removing directory /home/yabir/code/python/OCManager/api/rethinkdb_data/tmp
-2016-12-18T14:11:21.891584605 1.732894s notice: Initializing directory /home/yabir/code/python/OCManager/api/rethinkdb_data
-2016-12-18T14:11:21.891655628 1.732965s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/yabir/code/python/OCManager/api/rethinkdb_data' did not already exist or is empty.)
-2016-12-18T14:11:21.891673394 1.732983s notice: Running rethinkdb 2.3.5~0xenial (GCC 5.3.1)...
-2016-12-18T14:11:21.894142421 1.735454s notice: Running on Linux 4.4.0-53-generic x86_64
-2016-12-18T14:11:21.894188181 1.735498s notice: Loading data from directory /home/yabir/code/python/OCManager/api/rethinkdb_data
-2016-12-18T14:11:21.911711884 1.753022s info: Automatically using cache size of 2138 MB
-2016-12-18T14:11:21.911954093 1.753264s error: TCP socket creation failed for port 29015: Address already in use.
