@@ -1,13 +1,9 @@
 import os
 import rethinkdb as r
 from rethinkdb.errors import RqlRuntimeError, RqlDriverError
+from settings import RDB_HOST, RDB_PORT, PROJECT_DB, TABLES
 
-RDB_HOST = 'localhost'
-RDB_PORT = 28015
 db_connection = r.connect(RDB_HOST,RDB_PORT)
-
-PROJECT_DB = "communities"
-TABLES = ["users", "communities"]
 
 def dbSetup():
     try:
@@ -17,12 +13,10 @@ def dbSetup():
     except RqlRuntimeError:
         for table in TABLES:
             try:
-                r.db(PROJECT_DB).table_create(table).run(db.connection)
+                r.db(PROJECT_DB).table_create(table).run(db_connection)
                 print("Created table: " + table)
             except:
-                print(table + " already exits")
+                print("Table already exits")
 
 
 dbSetup()
-            
-        

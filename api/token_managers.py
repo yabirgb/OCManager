@@ -1,5 +1,7 @@
 import jwt
+from settings import SECRET_KEY
 
-class AuthMiddleware(object):
-    def process_request():
-        return None
+def generate_token(data):
+    return jwt.encode(data, SECRET_KEY, algorithm='HS256')
+
+print(generate_token({"user":"Yábir", "admin": True}))
