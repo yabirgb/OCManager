@@ -15,5 +15,10 @@ populate_routes(app)
 Arrancar con: gunicorn app:app
 Ejemplo de llamada:
 
-curl -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6Im11Y2ggd293In0.oINalNkcc2bjo3wv_tnCyufvyTBCY6Y0wr9sQ25qacE" http://localhost:8000/hello
+curl -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiWVx1MDBlMWJpciIsImFkbWluIjp0cnVlfQ.xtvKyxq26b7K02mVv21vkt7PbeOUatMbgxLOHIj7CQg" http://localhost:8000/hello
+
+curl -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiWVx1MDBlMWJpciIsImFkbWluIjp0cnVlfQ.xtvKyxq26b7K02mVv21vkt7PbeOUatMbgxLOHIj7CQg" --data '{"name":"Python Granada", "location": "Granada"}' http://localhost:8000/communities
+
+
+
 """

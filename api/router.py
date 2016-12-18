@@ -1,8 +1,9 @@
-from resources import (thing)
+from resources import (thing, communities)
 
 def populate_routes(app):
     routes = [
-        ("/hello", thing)
+        ("/hello", thing),
+        ("/communities", communities)
     ]
 
     for route in routes:
