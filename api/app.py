@@ -1,12 +1,15 @@
 import falcon
 from wsgiref import simple_server
+from falcon_cors import CORS
 
+cors = CORS(allow_all_origins=True, allow_all_methods=True, allow_all_headers = True)
 
 from middleware import AuthMiddleware
 from router import populate_routes
 
-app = falcon.API(middleware=[
+app = falcon.API( middleware=[
     AuthMiddleware(),
+    cors.middleware,
 ])
 
 populate_routes(app)
