@@ -4,11 +4,6 @@ import json
 
 from db_client import *
 
-class ThingResource(object):
-    def on_get(self, req, resp):
-        resp.status = falcon.HTTP_200
-        resp.body = ("hello")
-
 class Communities(object):
 
     def __init__(self):
@@ -30,11 +25,7 @@ class Communities(object):
     def on_get(self, req, resp):
         cursor = r.db(PROJECT_DB).table(self.table_name).run(db_connection)
         result = {self.table_name: [i for i in cursor]}
-
         resp.body = json.dumps(result)
         
-        
 
-
-thing = ThingResource()
 communities = Communities()
