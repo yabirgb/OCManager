@@ -29,11 +29,11 @@ class Event(BaseModel):
     not_going = ForeignKeyField(User, related_name='members__not_going', null = True)
 
 class Community(BaseModel):
-    pk = IntegerField()
+    c_id = IntegerField(unique=True)
     name = CharField()
     location = CharField()
-    users = ForeignKeyField(User, related_name='members')
-    events = ForeignKeyField(Event, related_name='events')
+    users = ForeignKeyField(User, related_name='members', null = True)
+    events = ForeignKeyField(Event, related_name='events', null = True)
 
 
 
