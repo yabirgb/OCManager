@@ -3,6 +3,7 @@ import rethinkdb as r
 import json
 from jsonschema import validate
 import datetime
+from playhouse.shortcuts import model_to_dict, dict_to_model
 
 from models import Event, Community
 
@@ -45,8 +46,8 @@ class Communities(object):
             resp.status = falcon.HTTP_422
 
     def on_get(self, req, resp):
-        result = Community.select().tuples()
-        resp.body = json.dumps(result)
+        query = Community.select()
+        resp.body = json.dumps({'communities':[model_to_dict(result) for result in query]})
 
 class Event(object):
 
