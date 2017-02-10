@@ -1,19 +1,16 @@
 # OCManager
 
-Plataforma para administrar grupos en los que todo el mundo puedo aportar.
-Proyecto que se presenta al Certamen de Proyectos Libres de la UGR.
+This project aims to create platform to administrate groups in which I participate. The idea is to create something similar to meetup but adding a minimun but usefull internal administration system based in open communities. This project has been presentated to the Open source software contest of the OSL (ETSIIT - UGR)
 
-## Objetivo
+Estre proyecto tiene como objetivo crear una plataforma para administrar grupos en los que actualmente participo. La idea es crear algo similar a meetup pero con un sistema de administración interna que permita la participación de la comunidad.
 
-Está inicialmente enfocada a las comunidades de desarrolladores pero
-se pretende que sea una plataforma que se pueda enfocar a otros
-ámbitos. Se pretender que sirva como un apoyo para facilitar la administración interna
-así como animar a la participación y darse a conocer en ámbitos locales.
+## Tecnología - Technology
 
-## Tecnología
+* [Falcon](https://github.com/falconry/falcon).
+* PostgreSQL.
+* Gunicorn.
+* Peewee (ORM).
 
-La API se está desarrollando el
-framework [Falcon](https://github.com/falconry/falcon) que usa python
-como lenguaje.
+
 
 
