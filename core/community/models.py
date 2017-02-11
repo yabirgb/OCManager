@@ -7,8 +7,8 @@ class Event(models.Model):
     name = models.CharField(max_length=254)
     place = models.CharField(max_length=255)
     date = models.DateTimeField()
-    going = models.ForeignKey(CustomUser,related_name="assistants")
-    notGoing = models.ForeignKey(CustomUser,related_name="avoiding")
+    going = models.ManyToManyField(CustomUser,related_name="assistants")
+    notGoing = models.ManyToManyField(CustomUser,related_name="avoiding", blank=True)
 
     def __str__(self):
         return self.name
