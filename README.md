@@ -6,11 +6,7 @@ Estre proyecto tiene como objetivo crear una plataforma para administrar grupos 
 
 ## Tecnología - Technology
 
-* [Falcon](https://github.com/falconry/falcon).
+* [Django](https://www.djangoproject.com/).
+* [Django Rest Framework](http://www.django-rest-framework.org/)
 * PostgreSQL.
 * Gunicorn.
-* Peewee (ORM).
-
-
-
-
