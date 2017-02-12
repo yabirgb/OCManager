@@ -3,3 +3,4 @@ lib/
 include/
 share/
 *.pyc
+frontend/node_modules/*
