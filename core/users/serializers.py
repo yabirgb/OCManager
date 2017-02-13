@@ -10,3 +10,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('username', 'email', 'public', 'following')
+
+
+class UserSerializerPublic(serializers.ModelSerializer):
+    username = serializers.CharField(source='user.username')
+
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'pk')
