@@ -13,8 +13,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserSerializerPublic(serializers.ModelSerializer):
-    username = serializers.CharField(source='user.username')
+    #username = serializers.CharField(source='user.username')
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'pk')
+        fields = ('uid',)

@@ -1,3 +1,6 @@
+import random
+import string
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -7,10 +10,26 @@ from django.utils.translation import ugettext_lazy as _
 import rest_framework.authtoken.models
 
 
+
 class CustomUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     public = models.BooleanField(default=True)
     following = models.ManyToManyField("community.Community", blank= True)
+    uid = models.SlugField(unique=True, editable=True, blank=True)
+    avatar = models.ImageField(upload_to='users', blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        while not self.uid:
+            ret = []
+            ret.extend(random.sample(string.digits, 3))
+            ret.extend(random.sample(string.digits, 3))
+            ret.extend(random.sample(string.digits, 3))
+
+            new_id = ''.join(ret)
+            if CustomUser.objects.filter(uid=new_id).count() == 0:
+                self.uid = new_id
+
+        super(CustomUser, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.user.username
