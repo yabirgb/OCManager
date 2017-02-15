@@ -8,5 +8,6 @@ Estre proyecto tiene como objetivo crear una plataforma para administrar grupos 
 
 * [Django](https://www.djangoproject.com/).
 * [Django Rest Framework](http://www.django-rest-framework.org/)
-* PostgreSQL.
-* Gunicorn.
+* [Gunicorn](https://github.com/benoitc/gunicorn)
+* [Reactjs](https://github.com/facebook/react)
+* [Express](https://github.com/expressjs/express)
