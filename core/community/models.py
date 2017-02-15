@@ -22,7 +22,7 @@ class Event(models.Model):
     going = models.ManyToManyField('users.CustomUser',related_name="assistants")
     notGoing = models.ManyToManyField('users.CustomUser',related_name="avoiding", blank=True)
     slug = models.SlugField(primary_key=True, unique=True, editable=True, blank=True)
-    comments = models.ManyToManyField(Comment, blank=True, null=True)
+    comments = models.ManyToManyField(Comment, blank=True)
 
     def save(self, *args, **kwargs):
         while not self.slug:
