@@ -2,6 +2,7 @@ from django.db import models
 import random
 import string
 import datetime
+from django.template.defaultfilters import slugify
 # Create your models here.
 
 
@@ -46,10 +47,18 @@ class Event(models.Model):
 class Community(models.Model):
 
     name = models.CharField(max_length=254)
+    slug = models.SlugField(primary_key=True, unique=True, editable=True, blank=True)
     city = models.CharField(max_length = 212)
     description = models.TextField()
     admins = models.ManyToManyField('users.CustomUser',related_name="admins")
     events = models.ManyToManyField(Event,related_name="events", blank = True)
+
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self.slug = slugify(self.name)
+
+        super(Community, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name

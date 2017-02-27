@@ -7,7 +7,7 @@ from users.models import CustomUser
 class CommunitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Community
-        fields = ('name', 'city', 'description', 'events')
+        fields = ('name', 'city', 'slug', 'description', 'events')
 
 class EventSerializer(serializers.ModelSerializer):
 

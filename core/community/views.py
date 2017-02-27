@@ -27,3 +27,9 @@ class EventViewSet(viewsets.ModelViewSet):
         serializer = EventSerializer(event)
         return Response(serializer.data)
 """
+
+class CommunityViewSet(viewsets.ModelViewSet):
+
+    serializer_class = CommunitySerializer
+    queryset = Community.objects.all()
+    lookup_field='slug'
