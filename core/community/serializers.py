@@ -7,13 +7,14 @@ from users.models import CustomUser
 class CommunitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Community
-        fields = ('name', 'city', 'slug', 'description', 'events')
+        fields = ('name', 'city', 'slug', 'description')
 
 class EventSerializer(serializers.ModelSerializer):
 
     going = UserSerializer(read_only=True, many=True)
     notGoing = UserSerializer(read_only=True, many=True)
+    organizer = CommunitySerializer(serializers.ModelSerializer)
 
     class Meta:
         model = Event
-        fields = ('name', 'place', 'description', 'date', 'going', 'notGoing', 'slug')
+        fields = ('name', 'place', 'description', 'date', 'going', 'notGoing', 'slug', 'organizer')

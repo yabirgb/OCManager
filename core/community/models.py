@@ -25,6 +25,7 @@ class Event(models.Model):
     notGoing = models.ManyToManyField('users.CustomUser',related_name="avoiding", blank=True)
     slug = models.SlugField(primary_key=True, unique=True, editable=True, blank=True)
     comments = models.ManyToManyField(Comment, blank=True)
+    organizer = models.ForeignKey("Community")
 
     def save(self, *args, **kwargs):
         while not self.slug:
@@ -51,7 +52,6 @@ class Community(models.Model):
     city = models.CharField(max_length = 212)
     description = models.TextField()
     admins = models.ManyToManyField('users.CustomUser',related_name="admins")
-    events = models.ManyToManyField(Event,related_name="events", blank = True)
 
 
     def save(self, *args, **kwargs):
