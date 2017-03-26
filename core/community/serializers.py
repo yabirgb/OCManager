@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from .models import Community, Event
-from users.serializers import UserSerializer
+from users.serializers import ProfileSerializer
 from users.models import CustomUser
 
 class CommunitySerializer(serializers.ModelSerializer):
@@ -11,8 +11,8 @@ class CommunitySerializer(serializers.ModelSerializer):
 
 class EventSerializer(serializers.ModelSerializer):
 
-    going = UserSerializer(read_only=True, many=True)
-    notGoing = UserSerializer(read_only=True, many=True)
+    going = ProfileSerializer(read_only=True, many=True)
+    notGoing = ProfileSerializer(read_only=True, many=True)
     organizer = CommunitySerializer(serializers.ModelSerializer)
 
     class Meta:
