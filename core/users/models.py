@@ -12,11 +12,12 @@ import rest_framework.authtoken.models
 
 
 class CustomUser(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank = True)
     public = models.BooleanField(default=True)
     following = models.ManyToManyField("community.Community", blank= True)
     uid = models.SlugField(unique=True, editable=True, blank=True)
     avatar = models.ImageField(upload_to='users', blank=True, null=True)
+    name = models.CharField(max_length = 240)
 
     def save(self, *args, **kwargs):
         while not self.uid:
