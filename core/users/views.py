@@ -1,3 +1,5 @@
+import json
+
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
@@ -8,7 +10,9 @@ from rest_framework import status
 from rest_framework import authentication, permissions
 
 from users.serializers import UserSerializer, ProfileSerializer
-from users.models import CustomUser
+from users.models import CustomUser, Token
+
+from .permissions import IsAdminOrPost
 
 
 
@@ -19,6 +23,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = ProfileSerializer
     lookup_field = 'user__username'
+    permission_classes = (IsAdminOrPost, )
 
     def create(self, request):
         user_serializer = UserSerializer(data = request.data)
@@ -29,7 +34,9 @@ class UserViewSet(viewsets.ModelViewSet):
             #Then create a Profile for that user
             if prof_serializer.is_valid():
                 prof_serializer.save()
-                return Response(prof_serializer.data, status=status.HTTP_201_CREATED)
+                token = Token.objects.get(user=user_obj).key
+                res = json.dumps({"token": token})
+                return Response(res, status=status.HTTP_201_CREATED)
             else:
                 return Response(prof_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
